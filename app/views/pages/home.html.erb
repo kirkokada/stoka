@@ -1,2 +1,35 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+	<div class="row">
+		<aside class="col-md-2">
+			<h2>STOKA</h2>
+			<div>
+				<%= link_to "Add Marker", '#', remote: true, class: "btn btn-primary" %>
+			</div>
+		</aside>
+		<div class="col-md-10">
+			<div id="map-canvas">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	// handler = Gmaps.build('Google');
+	// handler.buildMap({ provider: {}, internal: {id: 'map-canvas'}}, function(){
+	//   markers = handler.addMarkers([
+	//     {
+	//       "lat": 0,
+	//       "lng": 0,
+	//       "picture": {
+	//         "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+	//         "width":  36,
+	//         "height": 36
+	//       },
+	//       "infowindow": "hello!"
+	//     }
+	//   ]);
+	//   handler.bounds.extendWith(markers);
+	//   handler.fitMapToBounds();
+	// });
+</script>
