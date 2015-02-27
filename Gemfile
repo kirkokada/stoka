@@ -39,3 +39,7 @@ group :test do
 	gem 'selenium-webdriver'
 end
 
+group :produciton do
+	gem 'rails_12factor'
+end
+
