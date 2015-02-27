@@ -1,0 +1,13 @@
+<div class="info_window">
+	<div class="info_window_image">
+		<%= image_tag post.images.low_resolution.url %>
+	</div>
+	<div class="info_window_caption">
+		<p>
+			<%= Time.at(post.created_time.to_i).strftime("%B %d, %Y at %I:%M %p") %>
+		</p>
+		<p>
+			<%= word_wrap post.caption.text, line_width: 30 if post.caption %>
+		</p>
+	</div>
+</div>

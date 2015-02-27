@@ -1,0 +1,10 @@
+deleteMarkers();
+
+<% @media.each do |m| %>
+	<% if m['location']['latitude'] && m['location']['longitude'] %>
+		var lat = <%= m['location']['latitude'] %>
+		var lng = <%= m['location']['longitude'] %>
+		var content = '<%= escape_javascript(render("info_window", post: m)) %>'
+		createMarker(lat, lng, content);
+	<% end %>
+<% end %>

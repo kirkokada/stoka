@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -13,6 +12,7 @@ gem 'instagram'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'bootstrap-sass'
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -35,5 +35,7 @@ group :test do
 	gem 'guard-rspec'
 	gem 'spring-commands-rspec'
 	gem 'rb-fsevent'
+	gem 'terminal-notifier'
+	gem 'selenium-webdriver'
 end
 

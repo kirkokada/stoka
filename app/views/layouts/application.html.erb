@@ -9,8 +9,10 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class="container">
+	<%= render 'layouts/flash_modal' %>
+	<%= yield %>
+</div>
 
 </body>
 </html>
