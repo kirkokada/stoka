@@ -1,7 +1,9 @@
 var map;
 var marker;
 var markers = [];
-var bounds
+var bounds;
+var panorama;
+var sv
 
 $(document).ready(function() {
 	 bounds = new google.maps.LatLngBounds();
@@ -14,6 +16,13 @@ $(document).ready(function() {
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 		map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+		panorama = map.getStreetView();
+		panorama.setPosition(new google.maps.LatLng(21.3000, -157.8167));
+		panorama.setPov(({
+			heading: 265,
+			pitch: 0
+		}));
+		sv = new google.maps.StreetViewService();
 	};
 
 	google.maps.event.addDomListener(window, 'load', initialize);
@@ -32,12 +41,26 @@ function createMarker (lat, lng, content) {
 		content: content,
 		position: position
 	});
+
+	// Get and display a nearby panorama location, then open the info window on that panorama
+	// after clicking on a marker. Displays the info window on the road map if panorama unavailable.
+
 	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.open(map);
+		sv.getPanoramaByLocation(position, 50, function(result, status) {
+			if (status == google.maps.StreetViewStatus.OK) {
+				panorama.setPosition(result.location.latLng);
+				panorama.setVisible(true);
+				infowindow.open(panorama);
+			} else {
+				alert("No street view is available within 50m.");
+				infowindow.open(map)
+			}
+		});
 	});
+
 	bounds.extend(position);
 	map.fitBounds(bounds);
-	markers.push(marker)
+	markers.push(marker);
 }
 
 // Sets the map on all the markers in the array
@@ -48,11 +71,13 @@ function setAllMap (map) {
 	}
 }
 
-// Clear all markers
+// Clear all markers from map but keep them in the array
 
 function clearMarkers () {
 	setAllMap(null);
 }
+
+// Delete all markers and remove them from the map
 
 function deleteMarkers () {
 	setAllMap(null);
