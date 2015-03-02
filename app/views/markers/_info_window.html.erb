@@ -1,11 +1,11 @@
-<div class="info_window">
-	<div class="info_window_image">
+<div class="info-window">
+	<div class="info-window-image">
 		<%= image_tag post.images.low_resolution.url %>
 	</div>
-	<div class="info_window_caption">
+	<div class="info-window-caption">
 		<p>
 			<%= Time.at(post.created_time.to_i).strftime("%B %d, %Y at %I:%M %p") %>
 		</p>
-		<%= simple_format(word_wrap(post.caption.text, line_width: 55)) if !post.caption.nil? %>
+		<%= raw format_caption(post.caption.text, line_width: 55) if !post.caption.nil? %>
 	</div>
 </div>

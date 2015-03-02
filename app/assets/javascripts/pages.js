@@ -42,8 +42,8 @@ function createMarker (lat, lng, content) {
 		position: position
 	});
 
-	// Get and display a nearby panorama location, then open the info window on that panorama
-	// after clicking on a marker. Displays the info window on the road map if panorama unavailable.
+	// Listener to Get and display a nearby panorama location, then open the info window on that panorama
+	// on marker click. Displays the info window on the road map if panorama unavailable.
 
 	google.maps.event.addListener(marker, 'click', function() {
 		sv.getPanoramaByLocation(position, 50, function(result, status) {
@@ -96,4 +96,10 @@ function clearMarkers () {
 function deleteMarkers () {
 	setAllMap(null);
 	markers = [];
+}
+
+// Hide active street view panorama
+
+function hideStreetView () {
+	panorama.setVisible(false);
 }
