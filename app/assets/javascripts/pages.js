@@ -48,8 +48,22 @@ function createMarker (lat, lng, content) {
 	google.maps.event.addListener(marker, 'click', function() {
 		sv.getPanoramaByLocation(position, 50, function(result, status) {
 			if (status == google.maps.StreetViewStatus.OK) {
+
+				// Set panorama heading to point in the direction of the marker
+
+				var heading = google.maps.geometry.spherical.computeHeading(result.location.latLng, position);
 				panorama.setPosition(result.location.latLng);
+				panorama.setPov(({
+					heading: heading,
+					pitch: 0
+				}));
+
+				// Display panorama
+
 				panorama.setVisible(true);
+
+				// Open the info window on the panorama
+
 				infowindow.open(panorama);
 			} else {
 				alert("No street view is available within 50m.");
