@@ -6,8 +6,6 @@
 		<p>
 			<%= Time.at(post.created_time.to_i).strftime("%B %d, %Y at %I:%M %p") %>
 		</p>
-		<p>
-			<%= simple_format(word_wrap(post.caption.text, line_width: 55)) if !post.caption.nil? %>
-		</p>
+		<%= simple_format(word_wrap(post.caption.text, line_width: 55)) if !post.caption.nil? %>
 	</div>
 </div>
