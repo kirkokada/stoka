@@ -9,9 +9,15 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+<%= render 'layouts/navbar' %>
 <div class="container">
 	<%= render 'layouts/flash_modal' %>
 	<%= yield %>
+</div>
+<div class="container">
+  <% if Rails.env.development? %>
+    <%= debug params %>
+  <% end %>
 </div>
 
 </body>

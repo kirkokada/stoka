@@ -9,10 +9,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'instagram'
-gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'bootstrap-sass'
 gem 'figaro'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-instagram'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -27,6 +29,7 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -35,11 +38,13 @@ group :test do
 	gem 'guard-rspec'
 	gem 'spring-commands-rspec'
 	gem 'rb-fsevent'
-	gem 'terminal-notifier'
+	gem 'terminal-notifier-guard'
 	gem 'selenium-webdriver'
+	gem 'factory_girl'
 end
 
 group :produciton do
 	gem 'rails_12factor'
+	gem 'pg'
 end
 

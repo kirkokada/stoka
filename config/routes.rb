@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users, path_names: { sign_in: "signin", sign_out: "signout" },
+                     controllers: { omniauth_callbacks: "omniauth_callbacks",
+                                    registrations: "registrations" }
+  
   root 'pages#home'
 
   resources :markers, only: [:create, :destroy]

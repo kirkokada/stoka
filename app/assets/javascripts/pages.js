@@ -6,30 +6,31 @@ var panorama;
 var sv
 
 $(document).ready(function() {
-	 bounds = new google.maps.LatLngBounds();
+	bounds = new google.maps.LatLngBounds();
 
+	// Map must be initialized *after* Google scripts are loaded
 
 	function initialize () { 
+		var default_center = new google.maps.LatLng(21.3000, -157.8167) // Replace later with location from client ip
 		var mapOptions = {
 			zoom: 12,
-			center: new google.maps.LatLng(21.3000, -157.8167),
+			center: default_center,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 		map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 		panorama = map.getStreetView();
-		panorama.setPosition(new google.maps.LatLng(21.3000, -157.8167));
+		panorama.setPosition(default_center);
 		panorama.setPov(({
 			heading: 265,
 			pitch: 0
 		}));
 		sv = new google.maps.StreetViewService();
 	};
-
 	google.maps.event.addDomListener(window, 'load', initialize);
-
 });
 
-// Create a marker and infowindow at the coordinates and push the to an array
+// Creates a marker and infowindow at the coordinates and push the markers to an array,
+// then adjusts the bounds of the map to fit all markers in the array.
 
 function createMarker (lat, lng, content) {
 	var position = new google.maps.LatLng(lat, lng);
@@ -42,8 +43,9 @@ function createMarker (lat, lng, content) {
 		position: position
 	});
 
-	// Listener to Get and display a nearby panorama location, then open the info window on that panorama
-	// on marker click. Displays the info window on the road map if panorama unavailable.
+	// Add a listener for clicks to the marker to Get and display a nearby panorama location,  
+	// then open an info window on that panorama. Displays the info window on the road map 
+	// if a nearby panorama is unavailable.
 
 	google.maps.event.addListener(marker, 'click', function() {
 		sv.getPanoramaByLocation(position, 50, function(result, status) {
@@ -58,11 +60,7 @@ function createMarker (lat, lng, content) {
 					pitch: 0
 				}));
 
-				// Display panorama
-
 				panorama.setVisible(true);
-
-				// Open the info window on the panorama
 
 				infowindow.open(panorama);
 			} else {
@@ -98,8 +96,14 @@ function deleteMarkers () {
 	markers = [];
 }
 
-// Hide active street view panorama
+// Hide the street view panorama
 
 function hideStreetView () {
 	panorama.setVisible(false);
+}
+
+// Display flash notice modal 
+
+function showFlashModal () {
+	$("#flash-modal").modal("show");
 }
