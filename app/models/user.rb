@@ -43,4 +43,18 @@ class User < ActiveRecord::Base
   def password_required?
     (authentications.empty? || !password.blank?) && super
   end
+
+  # Returns a list of users whom a given user follows on Instagram
+  def instagram_follows
+    auth = authentications.find_by_provider("instagram")
+    return nil if auth.nil?
+    client = Instagram.client(client_id: ENV["INSTAGRAM_CLIENT_ID"], 
+                              access_token: auth.token)
+    client.user_follows(user_id: auth.uid.to_i)
+  end
+
+  # Returns true if Instagram authentication credentials exist
+  def instagram_authenticated?
+    return true if !authentications.find_by_provider("instagram").nil?
+  end
 end

@@ -3,7 +3,7 @@ class MediaFetcher
 	include ActiveModel::Model
 	include ActiveModel::Validations::Callbacks
 
-	attr_accessor :ig_username
+	attr_accessor :ig_username, :ig_access_token
 
 	VALID_IG_USERNAME = /\A[\w]+\z/
 
@@ -14,7 +14,9 @@ class MediaFetcher
 	before_validation :ig_profile
 
 	def ig_client
-		@ig_client ||= Instagram.client(client_id: ENV["INSTAGRAM_CLIENT_ID"])
+		@ig_client ||= Instagram.client(client_id: ENV["INSTAGRAM_CLIENT_ID"], 
+																		client_secret: ENV["INSTAGRAM_CLIENT_SECRET"],
+																		access_token: ig_access_token)
 	end
 
 	def ig_profile
@@ -23,6 +25,10 @@ class MediaFetcher
 
 	def ig_recent_media
 		@ig_recent_media ||= media_with_location
+	end
+
+	def ig_subscriptions
+		ig_client.subscriptions
 	end
 
 	private 

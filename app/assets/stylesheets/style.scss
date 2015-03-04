@@ -3,7 +3,7 @@
 #map-canvas {
 	height: 600px;
 	width: 100%;
-	margin-top: 25px;
+  margin-right: 10px;
 }
 
 /* Info Window */
@@ -14,4 +14,18 @@
 
 .info-window-caption {
 	word-wrap: break-word;
+}
+
+/* User Follows List */
+
+#instagram-user-follows-list {
+  height: 600px;
+  overflow-y: auto;
+}
+
+.user-follow-form {
+  font-size: 0.75em;
+  &:hover {
+    background-color: DarkGray;
+  }
 }

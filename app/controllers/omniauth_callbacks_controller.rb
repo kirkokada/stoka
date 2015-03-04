@@ -11,7 +11,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     # User is logged in, but authentication doesn't exist
     elsif current_user
-      current_user.authentications.create(provider: omniauth['provider'], uid: omniauth['uid'])
+      current_user.authentications.create(provider: omniauth['provider'], 
+                                          uid:      omniauth['uid'], 
+                                          token:    omniauth['credentials']['token'])
       flash[:notice] = "Authentication successful!"
       sign_in auth.user
       redirect_to root_url
@@ -19,7 +21,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # New user
     else
       user = User.new { |user| user.username = omniauth['info']['nickname'] }
-      user.authentications.build(provider: omniauth['provider'], uid: omniauth['uid'])
+      user.authentications.build(provider: omniauth['provider'], 
+                                 uid:      omniauth['uid'],
+                                 token:    omniauth['credentials']['token'])
       if user.save
         flash[:notice] = "Signed in"
         sign_in user

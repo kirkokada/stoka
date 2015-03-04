@@ -1,16 +1,11 @@
 
 <div class="row">
 	<aside class="col-md-2">
-		<h2>STOKA</h2>
-		<div>
-			<%= form_tag '/markers', remote: true do %>
-				<div class="form-group">
-					<%= label_tag :ig_username, "Instagram Username" %>
-					<%= text_field_tag :ig_username, nil, class: "form-control" %>
-				</div>
-				<%= submit_tag "Stoka!", class: "btn btn-primary" %>
-			<% end %>
-		</div>
+		<% if current_user && current_user.instagram_authenticated? %>
+			<div id="instagram-user-follows-list">
+				<%= render partial: 'shared/user_follow', collection: @user_follows %>
+			</div>
+		<% end %>
 	</aside>
 	<div class="col-md-10">
 		<div id="map-canvas">

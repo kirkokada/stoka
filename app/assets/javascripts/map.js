@@ -101,9 +101,3 @@ function deleteMarkers () {
 function hideStreetView () {
 	panorama.setVisible(false);
 }
-
-// Display flash notice modal 
-
-function showFlashModal () {
-	$("#flash-modal").modal("show");
-}
