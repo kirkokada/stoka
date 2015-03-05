@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.instagram.com/v1/users/search.json?client_id=0e5605cc6f7e47b58d6ad205a8ae973e&count=1&q=therock
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Instagram Ruby Gem 1.1.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 04 Mar 2015 23:09:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ratelimit-Remaining:
+      - '4940'
+      Content-Language:
+      - en
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Cookie, Accept-Language, Accept-Encoding
+      X-Ratelimit-Limit:
+      - '5000'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Set-Cookie:
+      - csrftoken=f75b4669cf97f34fb7b622dce378cd88; expires=Wed, 02-Mar-2016 23:09:06
+        GMT; Max-Age=31449600; Path=/
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '240'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"meta":{"code":200},"data":[{"username":"therock","bio":"The official
+        Instagram account for Dwayne ''The Rock'' Johnson","website":"http:\/\/twitter.com\/TheRock","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_232192182_75sq_1381267437.jpg","full_name":"therock","id":"232192182"}]}'
+    http_version: 
+  recorded_at: Wed, 04 Mar 2015 23:09:06 GMT
+recorded_with: VCR 2.9.3

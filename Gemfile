@@ -38,9 +38,12 @@ group :test do
 	gem 'guard-rspec'
 	gem 'spring-commands-rspec'
 	gem 'rb-fsevent'
+  gem 'terminal-notifier'
 	gem 'terminal-notifier-guard'
 	gem 'selenium-webdriver'
 	gem 'factory_girl'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :produciton do

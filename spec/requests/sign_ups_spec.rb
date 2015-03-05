@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'support/omniauth_mock'
+
 RSpec.describe "SignUps", type: :request do
   subject { page }
 
@@ -55,16 +56,22 @@ RSpec.describe "SignUps", type: :request do
       let(:to_instagram) { "Sign in with Instagram" }
 
       it "should create a new user" do
-        expect { click_link to_instagram }.to change(User, :count)
+        VCR.use_cassette "sign_ups_spec_with_instagram" do
+          expect { click_link to_instagram }.to change(User, :count)
+        end
       end
 
       it "should create a new authentication" do
-        expect { click_link to_instagram }.to change(Authentication, :count)
+        VCR.use_cassette "sign_ups_spec_with_instagram" do
+          expect { click_link to_instagram }.to change(Authentication, :count)
+        end
       end
 
       it "should redirect to root" do
-        click_link to_instagram
-        expect(page.current_path).to eq(root_path)
+        VCR.use_cassette "sign_ups_spec_with_instagram" do
+          click_link to_instagram
+          expect(page.current_path).to eq(root_path)
+        end
       end
     end
   end

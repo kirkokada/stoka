@@ -2,7 +2,7 @@
 	<% if message.is_a?(String) %>
 		<% label = name.to_s == "notice" ? "success" : "danger" %>
 		<%= content_tag :div, class: "alert alert-#{label}" do %>
-			<%= button_tag "X", class: "close", data: { dismiss: "alert" } %>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			<%= content_tag :div, message, id: "flash_#{name}" %>
 		<% end %>
 	<% end %>

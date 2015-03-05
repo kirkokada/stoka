@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'support/omniauth_mock'
 
 RSpec.describe "Sign in", type: :request do
-  let(:username) { "username" }
+  let(:username) { ENV["INSTAGRAM_USERNAME"] }
   let(:email)    { "user@email.com" }
   let(:password) { "password" }
   let!(:user)     { FactoryGirl.create :user, username: username,
@@ -93,7 +93,9 @@ RSpec.describe "Sign in", type: :request do
 
   describe "with Instagram", omniauth: :mock do
     let(:to_instagram) { "Sign in with Instagram" }
-    let!(:authentication) { user.authentications.create(provider: "instagram", uid: "1") }
+    let!(:authentication) { user.authentications.create(provider: "instagram", 
+                                                        uid: ENV["INSTAGRAM_UID"],
+                                                        token: ENV["INSTAGRAM_ACCESS_TOKEN"]) }
 
     before do
       omniauth_test_mode!
@@ -102,13 +104,17 @@ RSpec.describe "Sign in", type: :request do
     end
 
     it "should not create another authentication" do
-      expect { click_link to_instagram }.not_to change(Authentication, :count)
+      VCR.use_cassette "sign_in_spec_with_instagram" do
+        expect { click_link to_instagram }.not_to change(Authentication, :count)
+      end
     end
 
     it "should be successful" do
-      click_link to_instagram
-      expect(page.current_path).to eq(root_path)
-      expect(page).to have_selector "div.alert-success"
+      VCR.use_cassette "sign_in_spec_with_instagram" do
+        click_link to_instagram
+        expect(page.current_path).to eq(root_path)
+        expect(page).to have_selector "div.alert-success"
+      end
     end
   end
 end

@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.instagram.com/v1/users/self/follows.json?access_token=2575176.0e5605c.26763a8a5f254d5c921c77259ed20416&user_id=2575176
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - Instagram Ruby Gem 1.1.3
+      Authorization:
+      - Token token="2575176.0e5605c.26763a8a5f254d5c921c77259ed20416"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 04 Mar 2015 23:11:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Ratelimit-Remaining:
+      - '4981'
+      Content-Language:
+      - en
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      Vary:
+      - Cookie, Accept-Language, Accept-Encoding
+      X-Ratelimit-Limit:
+      - '5000'
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      Set-Cookie:
+      - csrftoken=fc34938f67085a64b2649956eeffb5a6; expires=Wed, 02-Mar-2016 23:11:26
+        GMT; Max-Age=31449600; Path=/
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3110'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"pagination":{"next_url":"https:\/\/api.instagram.com\/v1\/users\/2575176\/follows?access_token=2575176.0e5605c.26763a8a5f254d5c921c77259ed20416\u0026cursor=1359582639595\u0026user_id=2575176","next_cursor":"1359582639595"},"meta":{"code":200},"data":[{"username":"sarimatsu","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-c-a.akamaihd.net\/hphotos-ak-xfa1\/t51.2885-19\/10852850_754817374628610_751260686_a.jpg","full_name":"Sarita","id":"2822558"},{"username":"ashleyinnewyork","bio":"\u2661Dentist\u2661\nNew
+        York, Seattle, Seoul","website":"","profile_picture":"https:\/\/igcdn-photos-d-a.akamaihd.net\/hphotos-ak-xap1\/t51.2885-19\/10731766_562573823842795_590573765_a.jpg","full_name":"New
+        York married life","id":"24559554"},{"username":"alyssayoshi","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-c-a.akamaihd.net\/hphotos-ak-xpf1\/t51.2885-19\/10513779_320189734823282_1960129617_a.jpg","full_name":"Alyssa
+        Yoshimura","id":"193516277"},{"username":"leanimal206","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_684619773_75sq_1384728199.jpg","full_name":"Leanimal
+        Plancic","id":"684619773"},{"username":"maverick430","bio":"Why fall in love
+        when you can fall asleep","website":"https:\/\/mobile.twitter.com\/account","profile_picture":"https:\/\/igcdn-photos-f-a.akamaihd.net\/hphotos-ak-xfa1\/t51.2885-19\/10891106_1061145313911501_2112531895_a.jpg","full_name":"Karena
+        Tanaka","id":"632798901"},{"username":"takalife","bio":"TAKA from Tokyo,Japan.
+        I love nature, old things and warm hearts. My heart has been touched by Venice.
+        That''s why I have two restaurants in Tokyo.","website":"http:\/\/il-doge.com\/","profile_picture":"https:\/\/igcdn-photos-h-a.akamaihd.net\/hphotos-ak-xpf1\/t51.2885-19\/10299790_536860546422351_63776952_a.jpg","full_name":"Takahiro
+        miura","id":"285549690"},{"username":"thomashenderson1088","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_1129284091_75sq_1393474960.jpg","full_name":"Thomas
+        Henderson","id":"1129284091"},{"username":"therock","bio":"The official Instagram
+        account for Dwayne ''The Rock'' Johnson","website":"http:\/\/twitter.com\/TheRock","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_232192182_75sq_1381267437.jpg","full_name":"therock","id":"232192182"},{"username":"danielb66","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-a-a.akamaihd.net\/hphotos-ak-xap1\/t51.2885-19\/10624530_1491742314415744_20064190_a.jpg","full_name":"","id":"16843709"},{"username":"lil_lisa48","bio":"BELIEVE.DREAM.LOVE
+        \ud83d\udc96","website":"","profile_picture":"https:\/\/igcdn-photos-f-a.akamaihd.net\/hphotos-ak-xfp1\/t51.2885-19\/10507951_284930565013365_1773786722_a.jpg","full_name":"Lisa","id":"225288616"},{"username":"yokobon34","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_199841870_75sq_1390184285.jpg","full_name":"","id":"199841870"},{"username":"chlo35e","bio":"Loves
+        beach, healthy eating, fitness, and one adorable Shih-Tzu. #Tokyo, OC.","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_7549247_75sq_1387655071.jpg","full_name":"Connie","id":"7549247"},{"username":"sigmundtorre","bio":"Digital
+        and Traditional...available for commissions :)","website":"http:\/\/www.sigmundtorre.com","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_473305583_75sq_1374306910.jpg","full_name":"Sigmund
+        Torre","id":"473305583"},{"username":"momomomo69","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/anonymousUser.jpg","full_name":"\u9752\u5c71\u6843\u5b50","id":"247133026"},{"username":"therealbergcity","bio":"Gmail:
+        abergseyeview","website":"http:\/\/etsy.com\/shop\/abergseyeview","profile_picture":"https:\/\/igcdn-photos-b-a.akamaihd.net\/hphotos-ak-xaf1\/t51.2885-19\/10899370_635490846577233_3178913_a.jpg","full_name":"Alex
+        Bergstrom","id":"466060661"},{"username":"junbug6","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-d-a.akamaihd.net\/hphotos-ak-xpa1\/t51.2885-19\/10513882_1472095003033395_1048530145_a.jpg","full_name":"junbug6","id":"21665826"},{"username":"shaysonobe","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_15269073_75sq_1364799490.jpg","full_name":"Shay","id":"15269073"},{"username":"namsan2003","bio":"","website":"","profile_picture":"https:\/\/scontent.cdninstagram.com\/hphotos-xpf1\/t51.2885-19\/10735379_944878762207917_423683192_a.jpg","full_name":"John-Nam
+        Vo","id":"35240563"},{"username":"chelseatasaka","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-g-a.akamaihd.net\/hphotos-ak-xap1\/t51.2885-19\/10520385_495669357242086_1193659003_a.jpg","full_name":"Chelsea
+        Lyn","id":"275938755"},{"username":"khm3469","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_233762120_75sq_1370323271.jpg","full_name":"Ken
+        Hiroshi","id":"233762120"},{"username":"justinwakayama","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_209957109_75sq_1368928297.jpg","full_name":"justinwakayama","id":"209957109"},{"username":"ltsukazaki","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_232853568_75sq_1369820803.jpg","full_name":"lia","id":"232853568"},{"username":"cymrichang","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_2746003_75sq_1342236281.jpg","full_name":"","id":"2746003"},{"username":"aki418","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_9440029_75sq_1316068022.jpg","full_name":"","id":"9440029"},{"username":"cadd918","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_273727896_75sq_1361396131.jpg","full_name":"Dennis
+        D","id":"273727896"},{"username":"miketom808","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_223647232_75sq_1361147562.jpg","full_name":"","id":"223647232"},{"username":"yukat43","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-g-a.akamaihd.net\/hphotos-ak-xaf1\/t51.2885-19\/914721_648271085258406_1550028376_a.jpg","full_name":"yukatakeda","id":"24507590"},{"username":"emisano","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_37200391_75sq_1370672257.jpg","full_name":"","id":"37200391"},{"username":"meggiepies10","bio":"\u2764\ufe0f\u2600\ufe0f\ud83c\udf3a\u2708\ufe0f","website":"","profile_picture":"https:\/\/igcdn-photos-f-a.akamaihd.net\/hphotos-ak-xaf1\/t51.2885-19\/10956880_359637870886029_2021776457_a.jpg","full_name":"Megan","id":"178884975"},{"username":"mauriyaki","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_7695839_75sq_1364611671.jpg","full_name":"mauriyaki","id":"7695839"},{"username":"ddruger","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_31784275_75sq_1339363880.jpg","full_name":"","id":"31784275"},{"username":"ogitanih","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/anonymousUser.jpg","full_name":"Harris","id":"219663682"},{"username":"cosmic_ashtray","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/anonymousUser.jpg","full_name":"","id":"218436067"},{"username":"totty25","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_1835817_75sq_1296916519.jpg","full_name":"Shuhei
+        Tochiori","id":"1835817"},{"username":"miek0","bio":"\ud83d\udc95\ud83d\udc8d\ud83d\udcda\ud83d\udc58\ud83c\udfef\ud83d\udc60\ud83d\udc59\u2693
+        \ud83c\udf6c\ud83c\udf5c\ud83c\udf59\ud83c\udf19\nMy jewelry biz \ud83d\udc49mtshelldesigns
+        \ud83d\udc1a\ud83d\udc1a\ud83d\udc1a","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_45170633_75sq_1360746721.jpg","full_name":"","id":"45170633"},{"username":"elyseumeda","bio":"Owner
+        of CrossFit 808 in Honolulu, Hawaii","website":"http:\/\/www.808CrossFit.com","profile_picture":"https:\/\/igcdn-photos-h-a.akamaihd.net\/hphotos-ak-xaf1\/t51.2885-19\/10731787_305701922965247_2049742398_a.jpg","full_name":"Elyse
+        Umeda","id":"178255811"},{"username":"krystlerin","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-f-a.akamaihd.net\/hphotos-ak-xpf1\/t51.2885-19\/10553999_691005864287093_924200016_a.jpg","full_name":"Krystle","id":"254354716"},{"username":"krkajiwara","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_2542014_75sq_1362626408.jpg","full_name":"krkajiwara","id":"2542014"},{"username":"jar3dc","bio":"Bleed
+        purple and gold. \ud83c\udf5f","website":"","profile_picture":"https:\/\/igcdn-photos-g-a.akamaihd.net\/hphotos-ak-xpa1\/t51.2885-19\/10508006_669284706484422_1147802721_a.jpg","full_name":"Jared
+        Chu","id":"232211918"},{"username":"lilychau","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_881951_75sq_1375065480.jpg","full_name":"Lily","id":"881951"},{"username":"tko45_0","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_232846069_75sq_1362099381.jpg","full_name":"Troy
+        Okada","id":"232846069"},{"username":"jesseattle","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_34790118_75sq_1333812429.jpg","full_name":"Jessica
+        Garner","id":"34790118"},{"username":"hiromiromi","bio":"","website":"","profile_picture":"https:\/\/igcdn-photos-a-a.akamaihd.net\/hphotos-ak-xpa1\/t51.2885-19\/10467934_670653793028584_37027812_a.jpg","full_name":"hiromiromi","id":"3435808"},{"username":"stephchip","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_177964696_75sq_1377614919.jpg","full_name":"Hi","id":"177964696"},{"username":"maniniwahine","bio":"Rooted
+        in Hawaii\ud83c\udf4d. Groomed in LA\ud83c\udf34. Bloomed in Tokyo\ud83c\udf38.
+        Now in Singapore\ud83d\udc2f.","website":"","profile_picture":"https:\/\/igcdn-photos-b-a.akamaihd.net\/hphotos-ak-xaf1\/t51.2885-19\/10895229_802708829816017_4526724_a.jpg","full_name":"Alanna","id":"19467776"},{"username":"leezy911","bio":"Sparkly
+        sun kittys \u2728\u2600\ud83d\udc31","website":"","profile_picture":"https:\/\/igcdn-photos-d-a.akamaihd.net\/hphotos-ak-xaf1\/t51.2885-19\/10891102_971646916196523_810351318_a.jpg","full_name":"","id":"6315569"},{"username":"leightonrichards9","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_201313308_75sq_1351783157.jpg","full_name":"Leighton
+        Richards","id":"201313308"},{"username":"wynninjapan","bio":"An album of Tokyo
+        and whatever crumbs that fall off this delicious, strange cake.","website":"","profile_picture":"https:\/\/igcdn-photos-c-a.akamaihd.net\/hphotos-ak-xaf1\/t51.2885-19\/11005287_1403746416597402_1254119970_a.jpg","full_name":"Alweeen\uff01(\u25ce_\u25ce;)","id":"3578464"},{"username":"tessnish","bio":"","website":"","profile_picture":"https:\/\/instagramimages-a.akamaihd.net\/profiles\/profile_274919693_75sq_1398839419.jpg","full_name":"Tess
+        Nishida","id":"274919693"}]}'
+    http_version: 
+  recorded_at: Wed, 04 Mar 2015 23:11:26 GMT
+recorded_with: VCR 2.9.3

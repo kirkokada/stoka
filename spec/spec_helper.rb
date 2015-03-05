@@ -19,14 +19,21 @@
 
 require 'capybara/rspec'
 require 'factory_girl'
+require 'vcr'
 
 FactoryGirl.find_definitions
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/vcr_cassettes"
+  config.hook_into :webmock
+end
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.include Capybara::DSL
+
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`

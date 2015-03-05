@@ -6,12 +6,12 @@ module OmniAuthMock
   def mock_omniauth_instagram
     OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new({
                                                                     provider: "instagram",
-                                                                    uid: "1",
+                                                                    uid: ENV["INSTAGRAM_UID"],
                                                                     info: {
-                                                                      nickname: "username"
+                                                                      nickname: ENV["INSTAGRAM_USERNAME"]
                                                                     },
                                                                     credentials: {
-                                                                      token: "token"
+                                                                      token: ENV["INSTAGRAM_ACCESS_TOKEN"]
                                                                     }
                                                                   })
   end
