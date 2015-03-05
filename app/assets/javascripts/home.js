@@ -19,6 +19,7 @@ $(document).ready(function() {
 // Display loading animation during ajax events 
 
 $(document).ajaxStart(function() {
+  $('#status-display').html("");
   $('#loading-modal').modal('show')
 }).ajaxStop(function() {
   $('#loading-modal').modal('hide')

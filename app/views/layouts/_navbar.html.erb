@@ -16,6 +16,9 @@
         </div>
         <%= submit_tag "search", class: "btn btn-primary" %>
       <% end %>
+      <div class="nav navbar-nav navbar-left">
+        <p class="navbar-text" id="status-display"></p>
+      </div>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
         <li class="dropdown">
