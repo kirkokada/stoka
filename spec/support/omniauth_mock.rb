@@ -4,6 +4,7 @@ module OmniAuthMock
   end
 
   def mock_omniauth_instagram
+    omniauth_test_mode!
     OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new({
                                                                     provider: "instagram",
                                                                     uid: ENV["INSTAGRAM_UID"],
@@ -22,5 +23,5 @@ module OmniAuthMock
 end
 
 RSpec.configure do |c|
-  c.include OmniAuthMock, omniauth: :mock
+  c.include OmniAuthMock
 end
