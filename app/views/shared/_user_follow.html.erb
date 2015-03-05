@@ -1,4 +1,7 @@
 <%= form_tag '/markers', remote: true, class: "user-follow-form" do %>
-  <span>@<%= user_follow.username %> (<%= user_follow.full_name %>)</span>
+  <span>@<%= user_follow.username %></span>
+  <% unless user_follow.full_name.blank? %>
+    <span>(<%= user_follow.full_name.titleize %>)</span>
+  <% end %>
   <%= hidden_field_tag :ig_username, user_follow.username %>
 <% end %>

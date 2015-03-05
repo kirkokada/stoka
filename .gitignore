@@ -21,4 +21,4 @@
 
 # Ignore VCR cassettes
 /spec/vcr_cassetes
-/spec/vcr_cassetes/*
+/spec/vcr_cassettes/
