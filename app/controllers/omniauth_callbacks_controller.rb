@@ -15,7 +15,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
                                           uid:      omniauth['uid'], 
                                           token:    omniauth['credentials']['token'])
       flash[:notice] = "Authentication successful!"
-      sign_in auth.user
       redirect_to root_url
 
     # New user

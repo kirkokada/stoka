@@ -21,6 +21,18 @@
       </div>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
+        <% if current_user.instagram_authenticated? %>
+          <li class="instagram-icon">
+            <%= image_tag "instagram_icon.png", height: 25, width: 25 %>
+          </li>
+          <% else %>
+          <li>
+            <%= link_to user_omniauth_authorize_path(:instagram) do %>
+              <%= image_tag "instagram_icon.png", height: 25, width: 25, class: "inactive" %>
+            <% end %>
+          </li>
+        <% end %>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <span class="glyphicon glyphicon-cog"></span>
@@ -31,7 +43,7 @@
           </ul>
         </li>
       <% else %>
-        <li><%= link_to "Create account" %></li>
+        <li><%= link_to "Create account", new_user_registration_path %></li>
         <li><%= link_to "Sign in", new_user_session_path %></li>
       <% end %>
       </ul>

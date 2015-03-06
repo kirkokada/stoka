@@ -19,6 +19,20 @@
     to { -webkit-transform: rotate(360deg);}
 }
 
+/* Navbar */
+
+.instagram-icon {
+  padding-top: 12.5px;
+}
+.instagram-icon img.inactive {
+  -webkit-filter: grayscale(100%); 
+  filter: grayscale(100%);
+}
+
+.glyphicon-cog {
+  font-size: 1.2em;
+}
+
 /* Map */
 
 #map-canvas {

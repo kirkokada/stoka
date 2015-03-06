@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
 
   has_many :authentications, dependent: :destroy
 
+  def instagram_authenticated?
+    !authentications.find_by_provider("instagram").nil?
+  end
+
   def apply_omniauth(omniauth)
     username = omniauth['info']['nickname']
     provider = omniauth['provider']
