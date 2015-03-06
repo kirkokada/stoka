@@ -20,6 +20,12 @@
     <%= debug params %>
   <% end %>
 </div>
-
+<% unless flash.empty? %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      showFlashModal();
+    });
+  </script>
+<% end %>
 </body>
 </html>

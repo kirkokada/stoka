@@ -30,6 +30,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'sqlite3'
+  gem 'vcr'
 end
 
 group :test do
@@ -42,7 +43,6 @@ group :test do
 	gem 'terminal-notifier-guard'
 	gem 'selenium-webdriver'
 	gem 'factory_girl'
-  gem 'vcr'
   gem 'webmock'
 end
 

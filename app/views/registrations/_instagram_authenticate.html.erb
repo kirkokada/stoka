@@ -1,0 +1,11 @@
+<span class="social_media_authentication">
+  <% if current_user.instagram_authenticated? %>
+    <%= image_tag 'instagram_icon.png', height: 30, width: 30 %>
+    <%= link_to "Unlink your Instagram account", 
+          authentication_path(current_user.instagram_authentication),
+          method: :delete %>
+  <% else %>
+    <%= image_tag 'instagram_icon.png', height: 30, width: 30, class: "inactive" %>
+    <%= link_to "Link your Instagram account", user_omniauth_authorize_path(:instagram) %>
+  <% end %>
+</span>

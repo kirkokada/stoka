@@ -18,8 +18,9 @@ class User < ActiveRecord::Base
 
   has_many :authentications, dependent: :destroy
 
-  def instagram_authenticated?
-    !authentications.find_by_provider("instagram").nil?
+
+  def instagram_authentication
+    authentications.find_by_provider("instagram")
   end
 
   def apply_omniauth(omniauth)
@@ -58,7 +59,8 @@ class User < ActiveRecord::Base
   end
 
   # Returns true if Instagram authentication credentials exist
+
   def instagram_authenticated?
-    return true if !authentications.find_by_provider("instagram").nil?
+    !authentications.find_by_provider("instagram").nil?
   end
 end

@@ -24,7 +24,7 @@
 .instagram-icon {
   padding-top: 12.5px;
 }
-.instagram-icon img.inactive {
+img.inactive {
   -webkit-filter: grayscale(100%); 
   filter: grayscale(100%);
 }
@@ -69,4 +69,13 @@
 
 .alert {
   margin-bottom: 0 !important;
+}
+
+/* User Registration */
+
+.social_media_authentication {
+  padding: 10px 5px;
+  border: 1px solid DarkGray;
+  border-radius: 5px;
+  background-color: LightGray;
 }

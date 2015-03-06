@@ -5,6 +5,10 @@
 			<div id="instagram-user-follows-list">
 				<%= render partial: 'shared/user_follow', collection: @user_follows %>
 			</div>
+		<% else %>
+			<div>
+				<h2><%= link_to "Sign in with Instagram", user_omniauth_authorize_path(:instagram) %> to see what your friends are up to!</h2>
+			</div>
 		<% end %>
 	</aside>
 	<div class="col-md-10">
@@ -12,11 +16,3 @@
 		</div>
 	</div>
 </div>
-
-<% unless flash.empty? %>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			showFlashModal();
-		});
-	</script>
-<% end %>

@@ -14,9 +14,14 @@ class MediaFetcher
 	before_validation :ig_profile
 
 	def ig_client
-		@ig_client ||= Instagram.client(client_id: ENV["INSTAGRAM_CLIENT_ID"], 
-																		client_secret: ENV["INSTAGRAM_CLIENT_SECRET"],
-																		access_token: ig_access_token)
+		@ig_client ||= Instagram.client(ig_credentials)
+	end
+
+	def ig_credentials
+		creds = { client_id: ENV["INSTAGRAM_CLIENT_ID"], 
+							client_secret: ENV["INSTAGRAM_CLIENT_SECRET"] }
+		creds[:ig_access_token] = ig_access_token unless ig_access_token.nil?
+		return creds
 	end
 
 	def ig_profile
