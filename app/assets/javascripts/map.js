@@ -3,9 +3,14 @@ var marker;
 var markers = [];
 var bounds;
 var panorama;
-var sv
+var sv;
+var initialLocation;
+var browserSupportFlag =  new Boolean();
 
 $(document).ready(function() {
+	var siberia = new google.maps.LatLng(60, 105);
+	var newyork = new google.maps.LatLng(40.69847032728747, -73.9514422416687);
+	
 	bounds = new google.maps.LatLngBounds();
 
 	// Map must be initialized *after* Google scripts are loaded
@@ -14,7 +19,6 @@ $(document).ready(function() {
 		var default_center = new google.maps.LatLng(21.3000, -157.8167) // Replace later with location from client ip
 		var mapOptions = {
 			zoom: 12,
-			center: default_center,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 		map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -26,6 +30,34 @@ $(document).ready(function() {
 		}));
 		sv = new google.maps.StreetViewService();
 	};
+
+	// Try W3C Geolocation (Preferred)
+  if(navigator.geolocation) {
+    browserSupportFlag = true;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      map.setCenter(initialLocation);
+    }, function() {
+      handleNoGeolocation(browserSupportFlag);
+    });
+  }
+
+  // Browser doesn't support Geolocation
+  else {
+    browserSupportFlag = false;
+    handleNoGeolocation(browserSupportFlag);
+  }
+
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag == true) {
+      alert("Geolocation service failed.");
+      initialLocation = newyork;
+    } else {
+      alert("Your browser doesn't support geolocation. We've placed you in Siberia.");
+      initialLocation = siberia;
+    }
+    map.setCenter(initialLocation);
+  }
 	google.maps.event.addDomListener(window, 'load', initialize);
 });
 
