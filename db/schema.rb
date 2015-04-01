@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150306002247) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150306002247) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "authentications", ["user_id", "provider", "uid", "token", "secret"], name: "omniauth_index", unique: true
+  add_index "authentications", ["user_id", "provider", "uid", "token", "secret"], name: "omniauth_index", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150306002247) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
