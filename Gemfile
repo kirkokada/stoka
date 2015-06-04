@@ -27,28 +27,27 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-instagram'
 
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'vcr'
+  gem 'rubocop', require: false
 end
 
 group :test do
-	gem 'rspec-rails'
-	gem 'capybara'
-	gem 'guard-rspec'
-	gem 'spring-commands-rspec'
-	gem 'rb-fsevent'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'spring-commands-rspec'
+  gem 'rb-fsevent'
   gem 'terminal-notifier'
-	gem 'terminal-notifier-guard'
-	gem 'selenium-webdriver'
-	gem 'factory_girl'
+  gem 'terminal-notifier-guard'
+  gem 'selenium-webdriver'
+  gem 'factory_girl'
   gem 'webmock'
 end
 
 group :produciton do
-	gem 'rails_12factor'
+  gem 'rails_12factor'
 end
-
