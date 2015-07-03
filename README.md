@@ -2,7 +2,7 @@
 
 Stoka is an add on to Instagram that adds context to photos using Google Maps' street view.
 
-See it in action [here](https://arcane-sierra-2324.herokuapp.com/).
+See it in action [here](https://stoka.herokuapp.com/).
 
 # Use / Flow
 
