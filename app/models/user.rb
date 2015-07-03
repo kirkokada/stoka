@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -22,11 +20,13 @@ class User < ActiveRecord::Base
     authentications.find_by_provider('instagram')
   end
 
+  #
+  # Creates an authentication from an omniauth hash
+  #
   def apply_omniauth(omniauth)
-    provider = omniauth['provider']
-    uid = omniauth['uid']
-    token = omniauth['credentials']['token']
-    authentications.build(provider: provider, uid: uid, token: token)
+    authentications.build(provider: omniauth['provider'],
+                          uid:      omniauth['uid'], 
+                          token:    omniauth['credentials']['token'])
   end
 
   def self.find_for_database_authentication(warden_conditions)
@@ -49,7 +49,9 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super
   end
 
+  #
   # Returns a list of users whom a given user follows on Instagram
+  #
   def instagram_follows
     auth = authentications.find_by_provider('instagram')
     return nil if auth.nil?
@@ -58,8 +60,9 @@ class User < ActiveRecord::Base
     client.user_follows(user_id: auth.uid.to_i)
   end
 
+  #
   # Returns true if Instagram authentication credentials exist
-
+  #
   def instagram_authenticated?
     !authentications.find_by_provider('instagram').nil?
   end
